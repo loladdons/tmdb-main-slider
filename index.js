@@ -11,6 +11,9 @@
 const IMG = 'https://image.tmdb.org/t/p';
 const BASE = 'https://api.themoviedb.org/3';
 
+/** Clave del propio addon (la app no guarda API keys). */
+const DEFAULT_API_KEY = 'a2d9bbed370d9f678e34006f8750a5a5';
+
 function cfg(config, key, fallback) {
   if (!config) return fallback;
   const v = config[key];
@@ -62,9 +65,13 @@ function normalizeItem(item, mediaHint) {
  * getHome(ctx, config) — usado por FunctionService si hay entry JS
  */
 async function getHome(ctx, config) {
-  const apiKey = cfg(config, 'api_key', '') || cfg(config, 'apiKey', '');
+  // Prioridad: config del addon → clave embebida en este index.js
+  const apiKey =
+    cfg(config, 'api_key', '') ||
+    cfg(config, 'apiKey', '') ||
+    DEFAULT_API_KEY;
   if (!apiKey) {
-    throw new Error('Configura api_key en el addon (TMDB API Key)');
+    throw new Error('Este addon no trae api_key');
   }
 
   const language = cfg(config, 'language', 'es-MX');
