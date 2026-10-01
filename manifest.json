@@ -1,0 +1,47 @@
+{
+  "id": "tmdb-main-slider",
+  "name": "TMDB Slider principal",
+  "version": "1.0.0",
+  "description": "Hero / slider principal del home con tendencias TMDB (un ítem a la vez en PageView). Requiere API key de themoviedb.org.",
+  "type": "function",
+  "functionKind": "mainSlider",
+  "placements": ["home"],
+  "resources": ["home"],
+  "logo": "https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_2-d537fb228cf3ded904ef09b136fe3feb79cffa11.svg",
+  "author": "nuvio",
+  "supportedTypes": ["movie", "tv", "series"],
+  "entry": "index.js",
+  "homeUrl": "https://api.themoviedb.org/3/trending/all/week?api_key={api_key}&language={language}",
+  "baseUrl": "https://api.themoviedb.org/3",
+  "configSchema": [
+    {
+      "key": "api_key",
+      "label": "TMDB API Key",
+      "type": "password",
+      "default": "",
+      "description": "Clave v3 de https://www.themoviedb.org/settings/api"
+    },
+    {
+      "key": "language",
+      "label": "Idioma",
+      "type": "string",
+      "default": "es-MX",
+      "description": "Código idioma TMDB (es-MX, es-ES, en-US…)"
+    },
+    {
+      "key": "media",
+      "label": "Contenido",
+      "type": "select",
+      "default": "all",
+      "options": ["all", "movie", "tv"],
+      "description": "all = películas y series; movie o tv = solo uno"
+    },
+    {
+      "key": "limit",
+      "label": "Máx. ítems en el slider",
+      "type": "number",
+      "default": "8",
+      "description": "Cuántos slides mostrar (recomendado 5–12)"
+    }
+  ]
+}

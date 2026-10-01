@@ -1,0 +1,33 @@
+{
+  "fields": [
+    {
+      "key": "api_key",
+      "label": "TMDB API Key",
+      "type": "password",
+      "default": "",
+      "description": "Clave v3 de themoviedb.org/settings/api"
+    },
+    {
+      "key": "language",
+      "label": "Idioma",
+      "type": "string",
+      "default": "es-MX",
+      "description": "es-MX, es-ES, en-US…"
+    },
+    {
+      "key": "media",
+      "label": "Contenido",
+      "type": "select",
+      "default": "all",
+      "options": ["all", "movie", "tv"],
+      "description": "all | movie | tv"
+    },
+    {
+      "key": "limit",
+      "label": "Máx. ítems",
+      "type": "number",
+      "default": "8",
+      "description": "Slides a mostrar"
+    }
+  ]
+}
